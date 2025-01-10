@@ -4,7 +4,7 @@ using UnityEngine;
 public class ControladorDelJugador : MonoBehaviour
 {
     public TextMeshProUGUI txtMarcador;
-    
+
     public float velocitat = 5;
     public GameObject objecteControladorDelJoc;
     public ControladorDelJoc scriptControladorDelJoc;
@@ -32,6 +32,7 @@ public class ControladorDelJugador : MonoBehaviour
 
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.AddForce(moviment * velocitat * Time.deltaTime);
+
     }
 
     private void OnTriggerEnter(Collider other)
