@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControladorDelJugador : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class ControladorDelJugador : MonoBehaviour
     public float velocitat = 5;
     public GameObject objecteControladorDelJoc;
     public ControladorDelJoc scriptControladorDelJoc;
+    private int nEscena = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         objecteControladorDelJoc = 
@@ -43,5 +46,19 @@ public class ControladorDelJugador : MonoBehaviour
             scriptControladorDelJoc.SumaPuntuacio(1);
             txtMarcador.text = $"Cubos: {scriptControladorDelJoc.ObtenPuntacio()}";
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Final"))
+        {
+            nEscena++;
+            Final();
+        }
+    }
+
+    private void Final()
+    {
+        SceneManager.LoadScene(nEscena, LoadSceneMode.Single);
     }
 }
