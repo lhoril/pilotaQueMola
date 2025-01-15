@@ -9,7 +9,7 @@ public class ControladorDelJugador : MonoBehaviour
     public float velocitat = 5;
     public GameObject objecteControladorDelJoc;
     public ControladorDelJoc scriptControladorDelJoc;
-    private int nEscena = 1;
+    public int nEscena = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
