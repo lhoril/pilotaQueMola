@@ -7,11 +7,11 @@ public class RespawnPoint : MonoBehaviour
     public GameObject player;
     public List<GameObject> checkPoints;
     public Vector3 vectorPoint = Vector3.zero;
-    public float dead = 100;
+    public float dead = -10;
 
     private void Update()
     {
-        if (player.transform.position.y < -dead)
+        if (player.transform.position.y <= -dead)
         {
             player.transform.position = vectorPoint;
         }
