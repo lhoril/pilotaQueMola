@@ -10,6 +10,7 @@ public class ControladorDelJugador : MonoBehaviour
     public GameObject objecteControladorDelJoc;
     public ControladorDelJoc scriptControladorDelJoc;
     public int nEscena = 1;
+    int puntsTotals = 4;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start()
@@ -44,7 +45,12 @@ public class ControladorDelJugador : MonoBehaviour
         {
             Destroy(other.gameObject);
             scriptControladorDelJoc.SumaPuntuacio(1);
-            txtMarcador.text = $"Cubos: {scriptControladorDelJoc.ObtenPuntacio()}";
+            txtMarcador.text = $"Punts: {scriptControladorDelJoc.ObtenPuntacio()}";
+            if (scriptControladorDelJoc.ObtenPuntacio() == puntsTotals)
+            {
+                nEscena++;
+                Final();
+            }
         }
     }
 
@@ -52,7 +58,8 @@ public class ControladorDelJugador : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Final"))
         {
-            nEscena++;
+            if (nEscena != 3) nEscena++;
+            else nEscena = 0;
             Final();
         }
     }

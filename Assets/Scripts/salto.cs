@@ -5,6 +5,7 @@ public class salto : MonoBehaviour
     public float ForçaDeSalt = 0.4f;
     public Rigidbody rb;
     public float thrust = 10;
+    public int Level = 0;
     bool m_isGrounded;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +25,7 @@ public class salto : MonoBehaviour
 
     public void Jump()
     {
-        m_isGrounded = false;
+        if(Level != 3) m_isGrounded = false;
         rb.AddForce(0, thrust, 0, ForceMode.Impulse);
     }
 
